@@ -1,0 +1,12 @@
+.blockSetting {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    height: 200px;
+    background: #79aade;
+    border: 5px solid darkturquoise;
+    border-radius: 5px;
+    padding: 10px;
+}

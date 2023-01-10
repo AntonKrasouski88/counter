@@ -1,0 +1,62 @@
+.block {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    height: 200px;
+    background: #79aade;
+    border: 5px solid #fa8400;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.count {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 35px;
+    background-color: #79aade;
+    border: 3px solid #3d4fc7;
+    border-radius: 5px;
+    color: #ab29e5;
+}
+
+.countError {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 35px;
+    background-color: #d11f00;
+    border: 5px solid black;
+    color: #fcfcfc;
+}
+
+.buttonBlock {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    border: 3px solid #3d4fc7;
+    height: 70px;
+    border-radius: 5px;
+}
+
+.button {
+    display: block;
+    background-color: darkturquoise;
+    width: 100px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 2px solid white;
+}
+
+.buttonDis:disabled {
+    display: block;
+    background-color: gray;
+    width: 100px;
+    margin: 10px;
+    color: aliceblue;
+    border-radius: 5px;
+    border: 2px solid white;
+}
