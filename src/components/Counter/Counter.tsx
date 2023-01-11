@@ -4,13 +4,14 @@ import s from "./Counter.module.css"
 
 type CounterProps = {
     count: number,
+    value: number,
     changeCounter: (num: number) => void,
     resetCounter: (num: number) => void,
 }
 
 export const Counter = (props: CounterProps) => {
     const onclickChangeHandler = () => props.changeCounter(1);
-    const onclickResetHandler = () => props.resetCounter(0);
+    const onclickResetHandler = () => props.resetCounter(props.value);
     return (
         <div className={s.block}>
             <div className={props.count < 5 ? s.count : s.countError}>{props.count}</div>

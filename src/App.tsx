@@ -20,8 +20,9 @@ function App() {
 
     return (
         <div className="App">
-            <SettingCounter/>
+
             <Counter count={count}
+                     value={value}
                      changeCounter={changeCounter}
                      resetCounter={resetCounter}
             />
