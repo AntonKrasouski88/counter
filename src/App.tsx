@@ -4,7 +4,8 @@ import {Counter} from "./components/Counter/Counter";
 import {SettingCounter} from "./SettingCounter/SettingCounter";
 
 function App() {
-    const [count, setCount] = useState<number>(0);
+    const [count, setCount] = useState(0);
+    const [value, setValue] =useState(0);
 
     const changeCounter = (num: number) => {
         if (count < 5) {
@@ -15,7 +16,6 @@ function App() {
     const resetCounter = (num: number) => {
         setCount(num);
     }
-
 
 
     return (
