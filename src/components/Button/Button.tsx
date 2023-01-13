@@ -4,7 +4,7 @@ type ButtonProps = {
     onClickHandler: () => void,
     name: string,
     style?: string,
-    disabled: boolean,
+    disabled?: boolean,
 }
 
 const Button = (props: ButtonProps) => {

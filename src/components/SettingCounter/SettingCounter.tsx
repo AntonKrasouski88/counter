@@ -1,5 +1,5 @@
 import React, {ChangeEvent} from 'react';
-import Button from "../components/Button/Button";
+//import Button from "../Button/Button";
 import style from "./SettingCounter.module.css"
 
 type SettingCounterType = {
@@ -7,6 +7,7 @@ type SettingCounterType = {
     valueStart: number,
     changeValueMax: (num: number)=>void,
     changeValueStart: (num: number)=>void,
+    changeCounterValue:()=>void
 }
 
 
@@ -18,6 +19,11 @@ export const SettingCounter = (props:SettingCounterType) => {
     const onChangeValueStartHandler = (e: ChangeEvent<HTMLInputElement>) => {
         props.changeValueStart(+e.currentTarget.value)
     }
+
+    const onClickValueHandler = () => {
+        props.changeCounterValue()
+    }
+
 
     return (
         <div className={style.blockSetting}>
@@ -32,7 +38,7 @@ export const SettingCounter = (props:SettingCounterType) => {
                 </div>
             </div>
             <div className={style.buttonBlock}>
-                <Button onClickHandler={()=>{}} name={'set'} disabled={false}/>
+                <button onClick={onClickValueHandler}>set</button>
             </div>
 
         </div>
