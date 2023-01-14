@@ -1,5 +1,5 @@
 import React, {ChangeEvent} from 'react';
-//import Button from "../Button/Button";
+import Button from "../Button/Button";
 import style from "./SettingCounter.module.css"
 
 type SettingCounterType = {
@@ -8,20 +8,28 @@ type SettingCounterType = {
     changeValueMax: (num: number)=>void,
     changeValueStart: (num: number)=>void,
     changeCounterValue:()=>void
+    lockScreen: boolean
 }
 
 
 export const SettingCounter = (props:SettingCounterType) => {
     const onChangeValueMaxHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        props.changeValueMax(+e.currentTarget.value)
+        const num = +e.currentTarget.value;
+        if(num > props.valueStart) {
+            props.changeValueMax(num)
+        }
+
     }
 
     const onChangeValueStartHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        props.changeValueStart(+e.currentTarget.value)
+        const num = +e.currentTarget.value;
+        if(num >= 0 && num < props.valueMax) {
+            props.changeValueStart(num);
+        }
     }
 
     const onClickValueHandler = () => {
-        props.changeCounterValue()
+        props.changeCounterValue();
     }
 
 
@@ -38,7 +46,11 @@ export const SettingCounter = (props:SettingCounterType) => {
                 </div>
             </div>
             <div className={style.buttonBlock}>
-                <button onClick={onClickValueHandler}>set</button>
+                <Button
+                    onClickHandler={onClickValueHandler}
+                    name={'set'}
+                    style={!props.lockScreen ? style.button : style.buttonDis}
+                    disabled={props.lockScreen}/>
             </div>
 
         </div>

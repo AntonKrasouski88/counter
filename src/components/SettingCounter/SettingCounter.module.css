@@ -49,3 +49,22 @@
     height: 70px;
     border-radius: 5px;
 }
+
+.button {
+    display: block;
+    background-color: darkturquoise;
+    width: 100px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 2px solid white;
+}
+
+.buttonDis:disabled {
+    display: block;
+    background-color: gray;
+    width: 100px;
+    margin: 10px;
+    color: aliceblue;
+    border-radius: 5px;
+    border: 2px solid white;
+}
