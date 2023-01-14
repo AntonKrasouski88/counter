@@ -7,7 +7,7 @@ function App() {
     const [maxValue, setMaxValue] = useState<number>(5);
     const [startValue, setStartValue] = useState<number>(0);
     const [count, setCount] = useState(startValue);
-    const [lockScreen, setLockScreen] = useState<boolean>(false);
+    const [lockScreen, setLockScreen] = useState<boolean>(true);
 
     useEffect(() => {
         let maxString = localStorage.getItem('maxVal');
@@ -37,11 +37,18 @@ function App() {
         setCount(num);
     };
     const changeValueMax = (numMax: number) => {
-            setMaxValue(numMax);
+        setMaxValue(numMax);
+        if(lockScreen) {
+            setLockScreen(!lockScreen);
+        }
+
     }
 
     const changeValueStart = (numSt: number) => {
         setStartValue(numSt);
+        if(lockScreen) {
+            setLockScreen(!lockScreen);
+        }
     }
     const changeCountValue = () => {
         localStorage.setItem('maxVal', JSON.stringify(maxValue));
@@ -49,6 +56,7 @@ function App() {
         setMaxValue(maxValue);
         setStartValue(startValue);
         setCount(startValue);
+        setLockScreen(!lockScreen)
     }
 
     return (
