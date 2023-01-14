@@ -8,6 +8,7 @@ type CounterProps = {
     startValue: number,
     changeCounter: (num: number) => void,
     resetCounter: (num: number) => void,
+    lockScreen: boolean,
 }
 
 export const Counter = (props: CounterProps) => {
@@ -15,14 +16,18 @@ export const Counter = (props: CounterProps) => {
     const onclickResetHandler = () => props.resetCounter(props.startValue);
     return (
         <div className={s.block}>
-            <div className={props.count < props.maxValue ? s.count : s.countError}>{props.count}</div>
+            <div className={props.count < props.maxValue ? s.count : s.countError}>
+                <div>
+                    {props.lockScreen ? props.count : 'Enter values and press set'}
+                </div>
+            </div>
             <div className={s.buttonBlock}>
                 <Button name={'Inc'} onClickHandler={onclickChangeHandler}
-                        style={props.count < props.maxValue ? s.button : s.buttonDis}
-                        disabled={props.count >= props.maxValue}/>
+                        style={props.count < props.maxValue && props.lockScreen ? s.button : s.buttonDis}
+                        disabled={props.count >= props.maxValue  || !props.lockScreen}/>
                 <Button name={'Reset'} onClickHandler={onclickResetHandler}
-                        style={props.count === props.maxValue ? s.button : s.buttonDis}
-                        disabled={props.count < props.maxValue}
+                        style={props.count === props.maxValue && props.lockScreen ? s.button : s.buttonDis}
+                        disabled={props.count < props.maxValue || !props.lockScreen}
                 />
             </div>
         </div>

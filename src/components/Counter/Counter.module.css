@@ -12,6 +12,9 @@
 }
 
 .count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 100%;
     text-align: center;
@@ -19,10 +22,14 @@
     background-color: #79aade;
     border: 3px solid #3d4fc7;
     border-radius: 5px;
-    color: #ab29e5;
+    color: #0027ce;
+    font-family: monospace;
 }
 
 .countError {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 100%;
     text-align: center;

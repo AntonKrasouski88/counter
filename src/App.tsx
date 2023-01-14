@@ -6,8 +6,9 @@ import {SettingCounter} from "./components/SettingCounter/SettingCounter";
 function App() {
     const [maxValue, setMaxValue] = useState<number>(5);
     const [startValue, setStartValue] = useState<number>(0);
-    const [count, setCount] = useState(startValue);
+    const [count, setCount] = useState<number>(startValue);
     const [lockScreen, setLockScreen] = useState<boolean>(true);
+    const [error, setError] = useState<boolean>(false)
 
     useEffect(() => {
         let maxString = localStorage.getItem('maxVal');
@@ -38,7 +39,7 @@ function App() {
     };
     const changeValueMax = (numMax: number) => {
         setMaxValue(numMax);
-        if(lockScreen) {
+        if (lockScreen) {
             setLockScreen(!lockScreen);
         }
 
@@ -46,7 +47,7 @@ function App() {
 
     const changeValueStart = (numSt: number) => {
         setStartValue(numSt);
-        if(lockScreen) {
+        if (lockScreen) {
             setLockScreen(!lockScreen);
         }
     }
@@ -75,6 +76,7 @@ function App() {
                 startValue={startValue}
                 changeCounter={changeCounter}
                 resetCounter={resetCounter}
+                lockScreen={lockScreen}
             />
         </div>
     );
