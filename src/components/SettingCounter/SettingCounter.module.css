@@ -30,6 +30,13 @@
     width: 90px;
     border: 1px solid blueviolet;
     background: #d3d2d2;
+    text-align: center;
+}
+
+.score .inputError {
+    border: 1px solid red;
+    opacity: 0.5;
+    background-color: #d11f00;
 }
 
 .spanText {

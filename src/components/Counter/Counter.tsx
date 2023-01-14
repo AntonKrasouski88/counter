@@ -14,19 +14,31 @@ type CounterProps = {
 export const Counter = (props: CounterProps) => {
     const onclickChangeHandler = () => props.changeCounter(1);
     const onclickResetHandler = () => props.resetCounter(props.startValue);
+    const screenCount = () => {
+        return (
+            props.lockScreen ?
+                <div className={props.count < props.maxValue ? s.count : s.countError}>
+                    <div>
+                        {props.count}
+                    </div>
+                </div> : props.maxValue === props.startValue || props.startValue < 0 ?
+                    <div className={s.incorrectValue}>
+                        Incorrect Value
+                    </div> :
+                    <div className={s.count}>
+                        <span>Enter values and press set</span>
+                    </div>
+        )
+    }
     return (
         <div className={s.block}>
-            <div className={props.count < props.maxValue ? s.count : s.countError}>
-                <div>
-                    {props.lockScreen ? props.count : 'Enter values and press set'}
-                </div>
-            </div>
+            {screenCount()}
             <div className={s.buttonBlock}>
                 <Button name={'Inc'} onClickHandler={onclickChangeHandler}
                         style={props.count < props.maxValue && props.lockScreen ? s.button : s.buttonDis}
-                        disabled={props.count >= props.maxValue  || !props.lockScreen}/>
+                        disabled={props.count >= props.maxValue || !props.lockScreen}/>
                 <Button name={'Reset'} onClickHandler={onclickResetHandler}
-                        style={props.count === props.maxValue && props.lockScreen ? s.button : s.buttonDis}
+                        style={props.count === props.maxValue && props.lockScreen && props.lockScreen ? s.button : s.buttonDis}
                         disabled={props.count < props.maxValue || !props.lockScreen}
                 />
             </div>
